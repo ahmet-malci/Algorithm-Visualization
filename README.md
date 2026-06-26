@@ -4,7 +4,7 @@ An interactive, web-based educational tool designed to visualize the step-by-ste
 
 ## 📸 Screenshots
 
-*(Projenin ekran görüntülerini buraya sürükleyip bırakın / Drag and drop your screenshots here)*
+
 
 ## 📌 Modules & Algorithms
 
