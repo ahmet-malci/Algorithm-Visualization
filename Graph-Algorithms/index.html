@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Graf Algoritmaları</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <h2>Algoritmalar</h2>
+            
+            <div class="settings-group">
+                <label for="startNode">Başlangıç Düğümü:</label>
+                <select id="startNode"></select>
+                
+                <label class="checkbox-label">
+                    <input type="checkbox" id="isDirected" onchange="toggleDirected()"> Yönlü Graf (Directed)
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="allowNegative" checked> Negatif Ağırlıklara İzin Ver
+                </label>
+            </div>
+
+            <button onclick="initAlgo('dijkstra')">Dijkstra</button>
+            <button onclick="initAlgo('bellman')">Bellman-Ford</button>
+            <button onclick="initAlgo('prim')">Prim (MST)</button>
+            <button onclick="initAlgo('kruskal')">Kruskal (MST)</button>
+            <hr>
+            <button onclick="generateRandomGraph()" class="btn-random">🎲 Grafı Değiştir</button>
+            
+            <div class="stats">
+                <p id="currentAlgoName">Algoritma Seçin</p>
+            </div>
+
+            <div class="info-box algo-info-panel">
+                <h3>Algoritma Hakkında</h3>
+                <p id="algo-info-text">Öğrenmek istediğiniz bir algoritmayı seçin.</p>
+            </div>
+
+            <div class="info-box legend-panel">
+                <h3>Renk Anahtarı</h3>
+                <ul class="legend-list">
+                    <li><span class="dot yellow"></span> İşlem Gören Düğüm</li>
+                    <li><span class="dot blue"></span> Kontrol Edilen Kenar</li>
+                    <li><span class="dot green"></span> En Kısa Yol / MST</li>
+                    <li><span class="dot white"></span> Beklemede</li>
+                </ul>
+            </div>
+
+            <div class="log-container">
+                <div class="log-header">
+                    <h3>İşlem Kaydı</h3>
+                    <span id="stepCounter">Adım: 0 / 0</span>
+                </div>
+                <ul id="logList"></ul>
+            </div>
+        </aside>
+
+        <main class="main-stage">
+            <div class="canvas-card">
+                <canvas id="graphCanvas" width="850" height="550"></canvas>
+            </div>
+            <div class="controls">
+                <button class="btn-nav" onclick="prevStep()">⬅ Geri</button>
+                <button class="btn-nav btn-next" onclick="nextStep()">Sonraki ➡</button>
+                <button class="btn-nav btn-skip" onclick="skipToEnd()">⏭ Sonucu Gör</button>
+                <button class="btn-nav btn-auto" id="btnAuto" onclick="toggleAutoPlay()">▶ Otomatik</button>
+                <button class="btn-nav btn-reset" onclick="resetGraph()">Sıfırla</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

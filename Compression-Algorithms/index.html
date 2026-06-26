@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sıkıştırma Algoritmaları</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <aside class="sidebar">
+            <h2>Sıkıştırma Algoritmaları</h2>
+            
+            <div class="input-group">
+                <label for="inputText">Metin Girişi:</label>
+                <input type="text" id="inputText" value="BABAABBAA" autocomplete="off" placeholder="Bir metin girin...">
+            </div>
+
+          
+            <button class="btn-huffman" onclick="initAlgo('huffman')">🌳 Huffman Çiz (Encode)</button>
+            <button class="btn-lzw" onclick="initAlgo('lzw')">📚 LZW Çöz (Encode)</button>
+            
+            <hr style="border: 1px solid #334155; margin: 15px 0;">
+
+            <button class="btn-huffman" onclick="initAlgo('huffmanDecode')" style="background: transparent !important; color: var(--success) !important; border: 2px solid var(--success) !important;">🔓 Huffman Çöz (Decode)</button>
+            <button class="btn-lzw" onclick="initAlgo('lzwDecode')" style="background: transparent !important; color: var(--purple) !important; border: 2px solid var(--purple) !important;">🔓 LZW Çöz (Decode)</button>
+
+ 
+            <div class="info-box legend-panel" id="legendPanel" style="display: none;">
+                <h3>Ağaç Renk Anahtarı</h3>
+                <ul class="legend-list">
+                    <li><span class="dot yellow"></span> Yaprak (Karakter)</li>
+                    <li><span class="dot blue"></span> Kök (Toplam Frekans)</li>
+                    <li><span class="line green"></span> 0 (Sol Dal)</li>
+                    <li><span class="line red"></span> 1 (Sağ Dal)</li>
+                </ul>
+            </div>
+
+
+            <div class="log-container">
+                <div class="log-header">
+                    <h3>İşlem Kaydı</h3>
+                    <span id="stepCounter">Adım: 0 / 0</span>
+                </div>
+                <ul id="logList"></ul>
+            </div>
+        </aside>
+
+        <main class="main-stage">
+      
+            <div class="canvas-card" id="visualContainer">
+                <canvas id="treeCanvas" width="850" height="420"></canvas>
+                <div id="lzwTableContainer"></div>
+            </div>
+
+
+            <div class="controls">
+                <button class="btn-nav" onclick="prevStep()">⬅ Geri</button>
+                <button class="btn-nav btn-next" onclick="nextStep()">Sonraki ➡</button>
+                <button class="btn-nav btn-skip" onclick="skipToEnd()">⏭ Sonucu Gör</button>
+                <button class="btn-nav btn-auto" id="btnAuto" onclick="toggleAutoPlay()">▶ Otomatik</button>
+                <button class="btn-nav btn-reset" onclick="resetApp()">Sıfırla</button>
+            </div>
+
+
+            <div class="result-box">
+                <h3>Çıktı Paneli (Kodlar / Metin)</h3>
+                <div id="outputResult" class="result-text">İşlem bekleniyor...</div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
