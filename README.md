@@ -3,6 +3,8 @@
 An interactive, web-based educational tool designed to visualize the step-by-step execution of fundamental graph and data compression algorithms. Built entirely with Vanilla JavaScript and HTML5 Canvas, this platform brings complex computer science concepts to life through dynamic animations.
 
 ## 📸 Screenshots
+<img width="1279" height="616" alt="image" src="https://github.com/user-attachments/assets/43d19a90-0e8c-4828-ba0c-c7e79127e6aa" />
+<img width="1277" height="616" alt="image" src="https://github.com/user-attachments/assets/57922553-2de3-4bdf-9696-e5246cbb573b" />
 
 
 
